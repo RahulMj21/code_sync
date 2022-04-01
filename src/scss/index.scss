@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import "./variables";
+@import "./mixins";
+@import "./partials/createRoom";
+@import "./partials/singleRoom";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.5;
+  font-family: "Ubuntu", sans-serif;
+  background: $dark-primary;
+  color: $text-primary;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: inherit;
+}
+input,
+button {
+  outline: none;
+  border: none;
+  font-family: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+section {
+  min-height: 100vh;
+}
+.container {
+  width: 80rem;
+  max-width: 90%;
+  margin: auto;
+}
+.input-group {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2.5rem;
+  svg,
+  label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+  }
+  svg {
+    left: 0.5rem;
+    font-size: 1.3rem;
+    color: $brand;
+    pointer-events: none;
+  }
+  label {
+    display: inline-block;
+    left: 2.7rem;
+    font-size: 1.15rem;
+    text-transform: capitalize;
+    color: $text-gray;
+    letter-spacing: 0.4px;
+    @include transitionBounce;
+  }
+  input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: transparent;
+    border-bottom: 1px solid $brand;
+    padding-left: 2.7rem;
+    color: $text-primary;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    &:focus + label,
+    &:valid + label {
+      transform-origin: top left;
+      transform: translateY(-2.2rem) scale(0.8);
+    }
+  }
+}
+.btn-brand {
+  padding: 0.8rem 1.5rem;
+  color: white;
+  font-size: 1.45rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  background: $brand;
+  @include transitionEase;
+  &:hover {
+    background: $brand-dark;
+  }
+  &:active {
+    transition: none;
+    transform: scale(0.98);
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  &.small {
+    border-bottom: 1px solid $brand;
+    padding-bottom: 2.5rem;
+    .icon {
+      width: 2.9rem;
+    }
+    .seperator {
+      height: 2.9rem;
+    }
+    .info {
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .icon {
+    width: 4rem;
+  }
+  .seperator {
+    height: 4rem;
+    width: 2px;
+    background: $text-primary;
+    margin-right: 0.5rem;
+  }
+  .info {
+    h2 {
+      letter-spacing: 0.5px;
+      font-size: 2rem;
+      font-weight: 500;
+      color: $text-primary;
+      line-height: 1.25;
+    }
+    p {
+      letter-spacing: 0.5px;
+      color: $brand;
+      font-size: 1rem;
+      span {
+        display: inline-block;
+        word-wrap: nowrap;
+      }
+    }
+  }
+}

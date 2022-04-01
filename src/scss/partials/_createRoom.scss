@@ -1,0 +1,49 @@
+.createRoom {
+  .container {
+    height: 100vh;
+    width: 32rem !important;
+    display: grid;
+    place-items: center;
+  }
+  &__main {
+    width: 100%;
+    padding: 2rem;
+    background: $dark-secondary;
+    border-radius: 1rem;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .todo {
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .create-room {
+      text-align: center;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      color: $text-secondary;
+      button {
+        font-size: 1.15rem;
+        position: relative;
+        white-space: nowrap;
+        color: $brand;
+        cursor: pointer;
+        background: transparent;
+        &::before {
+          position: absolute;
+          content: "";
+          height: 1px;
+          width: 100%;
+          bottom: -0.15rem;
+          left: 0;
+          background: $brand;
+        }
+      }
+    }
+  }
+}
