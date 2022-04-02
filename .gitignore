@@ -10,7 +10,7 @@
 
 # production
 /build
-sever.js
+server.js
 
 # misc
 .DS_Store
