@@ -6,10 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
+    "esModuleInterop": true,
     "downlevelIteration":true,
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,6 +23,5 @@
   },
   "include": [
     "src",
-    "server.ts"
    ]
 }
