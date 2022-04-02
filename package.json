@@ -2,7 +2,7 @@
   "name": "code_sync",
   "version": "0.1.0",
   "private": true,
-  "postinstall": "react-scripts build && tsc server.ts",
+  "postinstall": "react-scripts build & tsc server.ts",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -36,7 +36,7 @@
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "start:dev": "ts-node-dev --transpile-only --respawn -r esm server.ts",
-    "start": "node server.js",
+    "start": "node -r esm server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
