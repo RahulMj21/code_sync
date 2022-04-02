@@ -1,10 +1,17 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { createServer } from "http";
+import path from "path";
 import { Server } from "socket.io";
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 const server = createServer(app);
+
+app.use(express.static("build"));
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -37,6 +44,9 @@ io.on("connection", (socket) => {
 
   socket.on("code_change", ({ roomId, code }) => {
     socket.in(roomId).emit("code_change", { code });
+  });
+  socket.on("code_sync", ({ socketId, code }) => {
+    io.to(socketId).emit("code_change", { code });
   });
 
   const handleLeave = () => {

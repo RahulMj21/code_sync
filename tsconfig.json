@@ -6,7 +6,6 @@
       "dom.iterable",
       "esnext"
     ],
-    // "useUnknownInCatchVariables": false,
     "downlevelIteration":true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,5 +23,5 @@
   },
   "include": [
     "src"
-, "server.ts"  ]
+,   ]
 }

@@ -18,6 +18,7 @@ export interface Client {
 
 const SingleRoom = () => {
   const socket = useRef<any>();
+  const codeRef = useRef<string | null>(null);
   const [allClients, setAllClients] = useState<Client[]>([]);
 
   const params = useParams();
@@ -70,6 +71,12 @@ const SingleRoom = () => {
         if (state.username !== username) {
           toast.success(`${username} joined`);
         }
+
+        if (codeRef.current !== null)
+          socket.current?.emit("code_sync", {
+            socketId,
+            code: codeRef.current,
+          });
       }
     );
 
@@ -113,7 +120,11 @@ const SingleRoom = () => {
         </div>
       </aside>
       <main className="singleRoom__workspace">
-        <Editor socket={socket} roomId={params.id} />
+        <Editor
+          onCodeChange={(code: string) => (codeRef.current = code)}
+          socket={socket}
+          roomId={params.id}
+        />
       </main>
     </section>
   );

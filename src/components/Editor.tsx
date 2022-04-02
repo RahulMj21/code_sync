@@ -10,9 +10,11 @@ import "codemirror/theme/dracula.css";
 const Editor = ({
   socket,
   roomId,
+  onCodeChange,
 }: {
   socket: React.MutableRefObject<any>;
   roomId: any;
+  onCodeChange: Function;
 }) => {
   const editorRef = useRef<any>();
 
@@ -31,6 +33,7 @@ const Editor = ({
       editorRef.current.on("change", (instance: any, changes: any) => {
         const origin = changes.origin;
         const code = instance.getValue();
+        onCodeChange(code);
         if (origin !== "setValue") {
           socket.current?.emit("code_change", { roomId, code });
         }
