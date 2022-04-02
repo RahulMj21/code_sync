@@ -2,7 +2,7 @@
   "name": "code_sync",
   "version": "0.1.0",
   "private": true,
-  "postinstall": "react-scripts build & tsc server.ts",
+  "postinstall": "react-scripts build",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
