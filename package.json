@@ -2,7 +2,6 @@
   "name": "code_sync",
   "version": "0.1.0",
   "private": true,
-  "postInstall":"cd server && tsc && cd ..",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -33,12 +32,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run build:client && npm run start:prod",
+    "start": "node server/server.js",
     "start:client": "react-scripts start",
-    "build:client": "react-scripts build",
+    "build": "npm run build:server && react-scripts build",
     "build:server": "cd server && tsc && cd ..",
     "start:dev": "ts-node-dev --transpile-only --respawn -r esm server/server.ts",
-    "start:prod": "node server/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
