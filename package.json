@@ -2,7 +2,7 @@
   "name": "code_sync",
   "version": "0.1.0",
   "private": true,
-  "postInstall":"tsc server.ts --target es6 --esModuleInterop",
+  "postInstall": "",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -33,11 +33,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run build && npm run start:prod",
+    "start": "npm run build:client && npm run build:server && npm run start:prod",
     "start:client": "react-scripts start",
-    "build": "react-scripts build",
-    "start:dev": "ts-node-dev --transpile-only --respawn -r esm server.ts",
-    "start:prod": "node -r esm server.js",
+    "build:client": "react-scripts build",
+    "build:server": "cd server && tsc && cd ..",
+    "start:dev": "ts-node-dev --transpile-only --respawn -r esm server/server.ts",
+    "start:prod": "node server/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
